@@ -238,3 +238,132 @@ class Dashboard extends StatelessWidget {
     );
   }
 }
+
+
+// import 'dart:convert';
+// import 'dart:html';
+
+// import 'package:flutter/material.dart';
+// import 'package:http/http.dart' as http;
+
+// class client extends StatefulWidget {
+//   const client({Key? key}) : super(key: key);
+
+//   @override
+//   State<client> createState() => _clientState();
+// }
+
+// class _clientState extends State<client> {
+//   List list = [];
+
+//   List listClients = [];
+//   Future<void> getData() async {
+//     final url = 'http://localhost:8081/etudiant/clients.php';
+//     final uri = Uri.parse(url);
+//     final response = await http.get(uri);
+
+//     setState(() {
+//       listClients = json.decode(response.body) as List;
+//       print(listClients);
+//     });
+
+//     // if (response.statusCode == 200) {
+//     //   final json = jsonDecode(response.body) as Map;
+//     //   final result = json['tbdistributions'] as List;
+//     //   setState(() {
+//     //     list = result;
+//     //   });
+//     // } else {}
+//   }
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     getData();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text("Distribution"),
+//           centerTitle: true,
+//         ),
+//         body: SingleChildScrollView(
+//           child: Padding(
+//             padding: EdgeInsets.all(8.0),
+//             child: Column(
+//               children: [
+//                 SizedBox(
+//                   height: 100,
+//                 ),
+//                 SizedBox(height: 20),
+//                 Text(
+//                   'Nos clients actuels',
+//                   style: TextStyle(
+//                       fontSize: 20,
+//                       color: Colors.black,
+//                       fontWeight: FontWeight.w500),
+//                 ),
+//                 Divider(
+//                   height: 3,
+//                 ),
+//                 SingleChildScrollView(
+//                   child: Container(
+//                     height: 500,
+//                     child: ListView.builder(
+//                         itemCount: listClients.length,
+//                         itemBuilder: (context, index) => Container(
+//                               margin: EdgeInsets.only(
+//                                 bottom: 10,
+//                               ),
+//                               padding: EdgeInsets.all(10),
+//                               decoration: BoxDecoration(color: Colors.white),
+//                               child: Column(
+//                                 mainAxisAlignment: MainAxisAlignment.start,
+//                                 children: [
+//                                   Text(
+//                                     ' ID :  ${listClients[index]['idClient']}',
+//                                     style: TextStyle(color: Colors.black),
+//                                   ),
+//                                   const SizedBox(
+//                                     height: 5,
+//                                   ),
+//                                   Text(
+//                                     ' NAME :  ${listClients[index]['nomClient']}',
+//                                     style: TextStyle(color: Colors.black),
+//                                   ),
+//                                   Text(
+//                                     ' TELEPHONE :  ${listClients[index]['telephoneClients']}',
+//                                     style: TextStyle(color: Colors.black),
+//                                   ),
+//                                 ],
+//                               ),
+//                             )),
+//                   ),
+//                 )
+//               ],
+//             ),
+//           ),
+//         ));
+//   }
+
+//   void showSuccessMessage(String message) {
+//     final snackBar = SnackBar(content: Text(message));
+//     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+//   }
+
+//   void showErrorMessage(String message) {
+//     final snackBar = SnackBar(
+//       content: Text(
+//         message,
+//         style: TextStyle(color: Colors.white),
+//       ),
+//       backgroundColor: Colors.red,
+//     );
+//     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+//   }
+
+//   //API GET DATA
+
+// }
