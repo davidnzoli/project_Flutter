@@ -68,14 +68,14 @@ class _ReservationState extends State<Reservation> {
 
   Future<void> saveData1() async {
     try {
-      var url = "http://localhost:8081/etudiant/post.php";
+      var url = "http://192.168.18.186:8080/etudiant/post.php";
 
       var response = await http.post(Uri.parse(url), body: {
         "nomClient": txtName.text,
         "adresseClient": txtAdresse.text,
         "telephoneClient": txtTelephone.text
       });
-      debugPrint(response.toString());
+      debugPrint(response.body.toString());
     } catch (ex) {
       print(ex);
     }
@@ -88,22 +88,21 @@ class _ReservationState extends State<Reservation> {
         "typechambre": valeur,
         "delaitresrvation": txtDelait.text,
         "prixreservation": txtPrix.text,
-
         // "numerochambre": txtAdresse.text,
         // "qualitechambre": txtTelephone.text,
         "daterervation": datechoose.toString(),
       }.toString());
-      var rqt = "http://localhost:8081/etudiant/postResrvation.php";
-      await http.post(Uri.parse(rqt), body: {
+      var rqt = "http://192.168.18.186:8080/etudiant/postResrvation.php";
+      var response = await http.post(Uri.parse(rqt), body: {
         "nomClient": txtName.text,
         "typechambre": valeur,
         "delaitresrvation": txtDelait.text,
         "prixreservation": txtPrix.text,
-
         // "numerochambre": txtAdresse.text,
         // "qualitechambre": txtTelephone.text,
         "daterervation": datechoose.toString(),
       });
+      debugPrint(response.body.toString());
     } catch (ex) {
       print(ex);
     }
@@ -438,22 +437,22 @@ class _ReservationState extends State<Reservation> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 70.0, vertical: 15.0),
                     child: Center(
-                      child: RaisedButton(
+                      child: TextButton(
                         onPressed: () {
-                          // saveData2();
+                          saveData2();
                           saveData1();
                         },
-                        mouseCursor: MouseCursor.defer,
-                        color: Colors.blueAccent,
+                        // mouseCursor: MouseCursor.defer,
+                        // color: Colors.blueAccent,
                         child: Text(
                           "Enregistré",
                           style: TextStyle(
                               fontSize: 17,
                               fontWeight: FontWeight.w100,
-                              color: Colors.white),
+                              color: Colors.black),
                         ),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 140.0, vertical: 25.5),
+                        // padding: EdgeInsets.symmetric(
+                        //     horizontal: 140.0, vertical: 25.5),
                       ),
                     ),
                   ),

@@ -93,7 +93,7 @@ class LoginAdminPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: 70.0, vertical: 15.0),
               child: Center(
-                child: RaisedButton(
+                child: TextButton(
                   onPressed: () {
                     // if (_formKey.currentState!.validate()) {
                     //   ScaffoldMessenger.of(context).showSnackBar(
@@ -102,17 +102,17 @@ class LoginAdminPage extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => Dashboard()));
                   },
-                  mouseCursor: MouseCursor.defer,
-                  color: Colors.blueAccent,
-                  child: Text(
+                  // mouseCursor: MouseCursor.defer,
+                  // color: Colors.blueAccent,
+                  child: const Text(
                     "Sign in",
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.w100,
                         color: Colors.white),
                   ),
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 140.0, vertical: 25.5),
+                  // padding:
+                  //     EdgeInsets.symmetric(horizontal: 140.0, vertical: 25.5),
                 ),
               ),
             ),
